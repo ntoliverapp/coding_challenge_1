@@ -195,6 +195,7 @@
     flex-direction: column;
     position: relative;
     overflow: auto;
+    
     &--button {
       margin: 1.5rem;
       padding: 7rem 12rem;
@@ -224,7 +225,7 @@
     }
   } // .wrapper__right END
   &__mailing {
-    grid-template-columns: 6fr 4fr;
+    grid-template-columns: 4fr 7fr;
     background-color: #4f4f4f;
     .wrapper__left {
       max-height: 100vh;
@@ -238,11 +239,36 @@
     }
   } // .wrapper__mailing END
   &__mailings {
-    grid-template-columns: 4fr 7fr 0.5fr;
+    grid-template-columns: 3fr 8fr;
     background-color: #4f4f4f;
     & .wrapper__right {
       max-height: 100vh;
       background-color: #242424;
+
+      h1 {
+        margin-top: 40px;
+      }
+      .row {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .card .container {
+        padding: 10px 30px 10px;
+        border:transparent 1px #000000;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.6);
+        margin: 70px;
+        margin-bottom: 0;
+        &:hover {
+          background-color: #4f4f4f;
+          color: #e8e8e8;
+          transform: scale(1.05);
+          transition: all 0.5s ease-in-out;
+          border: solid 1px #fa521a;
+        }
+
+      }
     }
     & .wrapper__left {
       background-color: #4f4f4f;

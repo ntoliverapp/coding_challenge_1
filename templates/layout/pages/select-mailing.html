@@ -35,8 +35,66 @@
     <div class="wrapper__right">
         <!-- 
             TODO: Display mailings here with the date, subject and any associated tags 
-            Flex your creative muslces in how you display things!
+            Flex your creative muscles in how you display things!   
         -->
+    <section>
+        <style>
+            div {text-align: center;}
+        </style>
+        <div>
+            <h1>Existing Mailings</h1>
+            <!-- DISPLAY TWO COLUMNS -->
+            <div class='row'>
+                {% for mail in all_mailings %}
+
+                    <div class='card'>
+                        <div class='container'>
+                            <div>
+                                <h2>
+                                    Subject: {{ mail.pk }}
+                                </h2>
+                                <h5>
+                                    Created Date: {{ mail.created_date }}<br>
+                                    Updated Date:  {{ mail.updated_date }}<br>
+                                </h5>
+                                <p >
+                                    To: {{mail.reply_to}}<br>
+                                    From: {{mail.from_line}}<br><br>
+
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+                                </p>
+                                <h6>
+                                    {{ mail.tags }}
+                                </h6>  
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <!-- PAGINATION -->
+        <div class='pagination'>
+            <span class="step-links">
+
+                {% if all_mailings.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ all_mailings.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ all_mailings.number }} of {{ all_mailings.paginator.num_pages }}.
+                </span>
+
+                {% if all_mailings.has_next %}
+                    <a href="?page={{ all_mailings.next_page_number }}">next</a>
+                    <a href="?page={{ all_mailings.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>        
+    </section>
+
     </div>
     </div>
 {% endblock %}
